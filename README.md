@@ -1,0 +1,2 @@
+# deepseek_App_Set
+基于deepseek API和streamlit制作的一些小应用，有五个小网页组成的网站
