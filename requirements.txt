@@ -1,9 +1,9 @@
-langchain-deepseek
-langchain
-langchain-experimental
-langchain-community
-sentence-transformers
-faiss-cpu  # 如果你使用 CPU 环境，使用 faiss-cpu；如果使用 GPU 环境，可考虑 faiss-gpu
-streamlit
-pandas
-wikipedia
+langchain==0.3.17
+langchain_community==0.3.16
+langchain_deepseek==0.1.1
+langchain_experimental==0.3.4
+langchain_text_splitters==0.3.6
+pandas==1.4.4
+pydantic==2.10.6
+sentence_transformers==3.4.1
+streamlit==1.41.1
