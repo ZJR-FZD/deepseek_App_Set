@@ -6,4 +6,3 @@ sentence-transformers
 faiss-cpu  # 如果你使用 CPU 环境，使用 faiss-cpu；如果使用 GPU 环境，可考虑 faiss-gpu
 streamlit
 pandas
-PyPDFLoader
