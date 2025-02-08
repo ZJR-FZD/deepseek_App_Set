@@ -40,7 +40,7 @@ if submit:
     st.write(title)
     st.subheader("视频脚本：")
     st.write(script)
-    with st.expander("维基百科搜索结果："): #折叠展开组件
+    with st.expander("百度百科搜索结果："): #折叠展开组件
         st.info(search_result)
 
 

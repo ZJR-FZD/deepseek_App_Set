@@ -1,7 +1,6 @@
 import streamlit as st
 from utils_csv_analyzer import dataframe_agent
 import pandas as pd
-import os
 
 def create_chart(input_data, chart_type):
     # 检查"data"字段是否存在且非空
