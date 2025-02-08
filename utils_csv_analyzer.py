@@ -1,6 +1,7 @@
 from langchain_deepseek import ChatDeepSeek
 from langchain_experimental.agents.agent_toolkits import create_csv_agent
 import json
+import uuid  # 导入uuid模块用于生成唯一文件名
 
 PROMPT_TEMPLATE = """
     你是一位数据分析助手，你的回应内容取决于用户的请求内容。
@@ -30,19 +31,17 @@ PROMPT_TEMPLATE = """
     """
 
 def dataframe_agent(api_key, uploaded_file, query):
-    model = ChatDeepSeek(model="deepseek-chat",api_key=api_key,
-                       temperature=0)
+    model = ChatDeepSeek(model="deepseek-reson", api_key=api_key,
+                         temperature=0)
     
     # path 复制文件到本地，得到路径
-    file_content = uploaded_file.getvalue() #.read()改成.getvalue()，就能读了
-    print(file_content)
-    print(type(file_content))
-    print(type(file_content))
-    file_path = "temp.csv"
-    with open(file_path,"wb") as fwb:
+    file_content = uploaded_file.getvalue()  # .read()改成.getvalue()，就能读了
+    # 生成唯一的文件名
+    unique_filename = f"{uuid.uuid4().hex}.csv"  
+    file_path = unique_filename
+    with open(file_path, "wb") as fwb:
         fwb.write(file_content)
  
-    
     # agent执行器
     agent_executor = create_csv_agent(
         llm=model,
@@ -60,9 +59,8 @@ def dataframe_agent(api_key, uploaded_file, query):
         "input": prompt
     })
 
-    try : result_dict = json.loads(result["output"]) #实际输出的内容是output键对应的值，然后把它解析成字典，方便前端使用
-    finally : print(result["output"])
+    try:
+        result_dict = json.loads(result["output"])  # 实际输出的内容是output键对应的值，然后把它解析成字典，方便前端使用
+    finally:
+        print(result["output"])
     return result_dict
-
-
-    

@@ -1,7 +1,6 @@
 from langchain_deepseek import ChatDeepSeek
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationChain
-import os
 
 def get_chat_response(api_key,prompt,memory): # memory不能是函数的内部局部变量，否则会被清空
 
